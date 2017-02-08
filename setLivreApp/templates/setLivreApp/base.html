@@ -8,23 +8,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    /* Remove margem e bordas arredondas padrao do boostrap */ 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    /* atribui altura do grid .sidenav para 100% (ajustar conforme necessario) */
     .row.content {height: 450px}
     
-    /* Set gray background color and 100% height */
+    /* Atribui cor de fundo cinza e 100% de altura */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
     }
     
-    /* Set black background color, white text and some padding */
+    /* Atribui cor de fundo 'preta', texto branco e padding */
     footer {
       background-color: #555;
       color: white;
@@ -67,6 +67,8 @@
 </nav>
 
 <!--extender paginas aqui-->
+{% block content %}
+{% endblock %}
 
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
