@@ -14,7 +14,7 @@ class Integrante(models.Model):
         self.save()
 
     def __unicode__(self):
-        return 'Integrante Model' 
+        return 'Integrante' 
 
 class Projeto(models.Model):
     nome = models.CharField(max_length=100, blank=False)
@@ -24,14 +24,14 @@ class Projeto(models.Model):
         self.save() 
 
     def __unicode__(self):
-        return 'Projeto Model' 
+        return 'Projeto' 
 
 class Artigo(models.Model):
     titulo = models.CharField(max_length=150, blank=False, null=False)
     conteudo = models.TextField()
     data_publicacao = models.DateTimeField()
     caminho_foto = models.CharField(max_length=500)
-    usuario = models.ForeignKey('auth.User')
+    autor = models.ForeignKey('Integrante')
     projeto = models.ForeignKey('Projeto')
 
     def salvar(self):
@@ -39,4 +39,4 @@ class Artigo(models.Model):
         self.save()
 
     def __unicode__(self):
-        return 'Artigo Model' 
+        return 'Artigo' 

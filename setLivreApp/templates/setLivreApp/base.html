@@ -56,10 +56,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="{% url 'sobre' %}">Set Livre</a></li>
-        <li><a href="#">Joystick Livre</a></li>
-        <li><a href="#">Comite Livre</a></li>
-        <li><a href="#">Set List</a></li>
-        <li><a href="#">Enigma dos Mares</a></li>
+        <li><a href="{% url 'projeto' id=1 %}">Joystick Livre</a></li> 
+        <li><a href="{% url 'projeto' id=2 %}">Comite Livre</a></li> 
+        <li><a href="{% url 'projeto' id=3 %}">Set List</a></li> 
+        <li><a href="{% url 'projeto' id=4 %}">Enigma dos Mares</a></li> 
         <li><a href="{% url 'contato' %}">Contato</a></li>
       </ul>
     </div>
