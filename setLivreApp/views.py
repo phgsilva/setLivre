@@ -10,14 +10,17 @@ def contato(request):
     return render(request, 'setLivreApp/contato.html')
 
 def sobre(request):
-    return render(request, 'setLivreApp/sobre.html')
+    integrantes = Integrante.objects.all()
+    return render(request, 'setLivreApp/sobre.html', {'integrantes': integrantes})
 
 def projeto(request, id):
     projeto = get_object_or_404(Projeto, pk=id)
     return render(request, 'setLivreApp/projeto.html', {'projeto': projeto})
 
 def artigo(request, id):
-    return render(request, 'setLivreApp/artigo.html')
+    artigo = get_object_or_404(Artigo, pk=id)
+    return render(request, 'setLivreApp/artigo.html', {'artigo': artigo})
 
 def bio(request, id):
-    return render(request, 'setLivreApp/bio.html')
+    bioagrafia = get_object_or_404(Integrante, pk=id)
+    return render(request, 'setLivreApp/bio.html', {'bioagrafia': bioagrafia})
