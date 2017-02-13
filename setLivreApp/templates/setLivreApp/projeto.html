@@ -3,8 +3,8 @@
  {% block content %}
  <div class="text-center">
   <div class="container">
-    <h1>{{ projeto.nome }}</h1>      
-    <p>{{ projeto.descricao }}</p>
+    <h1>{{ valores.projeto.nome }}</h1>      
+    <p>{{ valores.projeto.descricao }}</p>
   </div>
 </div>
 <br>
@@ -32,17 +32,9 @@
   </div>
   <div id="artigos" class="tab-pane fade">
     <h3>Artigos</h3>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
-    <p>Lista de artigos pubicados</p>
+    {% for artigo in valores.artigos %}
+        <h6><a href="{% url 'artigo' id=artigo.pk %}"> artigo.titulo </a></h6>
+    {% endfor %}
   </div>
 </div>    
 </div><br><br>

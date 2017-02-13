@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, get_object_or_404
 from .models import Projeto, Artigo, Integrante
 
@@ -15,7 +16,13 @@ def sobre(request):
 
 def projeto(request, id):
     projeto = get_object_or_404(Projeto, pk=id)
-    return render(request, 'setLivreApp/projeto.html', {'projeto': projeto})
+    artigos = Artigo.objects.filter(projeto=projeto, 
+                                    data_publicacao__year=datetime.date.today().year).orderby('data_publicacao')
+
+    retorno = {'projeto': projeto,
+                'artigos': artigos}
+
+    return render(request, 'setLivreApp/projeto.html', {'valores': retorno})
 
 def artigo(request, id):
     artigo = get_object_or_404(Artigo, pk=id)
