@@ -17,7 +17,7 @@ def sobre(request):
 def projeto(request, id):
     projeto = get_object_or_404(Projeto, pk=id)
     artigos = Artigo.objects.filter(projeto=projeto, 
-                                    data_publicacao__year=datetime.date.today().year).orderby('data_publicacao')
+                                    data_publicacao__year=datetime.date.today().year).order_by('data_publicacao')
 
     retorno = {'projeto': projeto,
                 'artigos': artigos}

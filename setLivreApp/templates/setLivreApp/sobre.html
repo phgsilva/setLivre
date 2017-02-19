@@ -9,17 +9,17 @@
 </div>
   
 <div class="container-fluid bg-3 text-center">    
-  <h3>Nossa equipe</h3><br>
+  <h3>Nossa Equipe</h3><br>
   <div class="row">
     {% for integrante in integrantes %}
     
     <div class="col-sm-3">
-      <p style="font-weight: bold;">{{ integrante.nome }}</p>
+      <p style="font-weight: bold;"> <a href="{% url 'bio' id=integrante.pk %}"> {{ integrante.nome }} </a></p>
       <a href="{% url 'bio' id=integrante.pk %}">
         <img src="{{ integrante.caminho_foto }}" class="img-responsive" style="width:100%; height: 200px" alt="Image">
       </a>
+      <br>
     </div>
-    <br><br>
     
     {% endfor %}
   </div>
