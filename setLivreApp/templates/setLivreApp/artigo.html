@@ -7,17 +7,18 @@
     
     <div class="col-sm-12">   
     <div class="text-left">
-        <h1>Titulo artigo</h1>
-        <p><span class="glyphicon glyphicon-pushpin"></span> Publicado por Adonias</p>
-        <p><span class="glyphicon glyphicon-calendar"></span> 27 de Fevereiro 2017</p>
+        <h1>{{ artigo.titulo }}</h1>
+        <p><span class="glyphicon glyphicon-pushpin"></span> Publicado por {{ artigo.autor }}</p>
+        <p><span class="glyphicon glyphicon-calendar"></span> {{ artigo.data_publicacao }}</p>
     </div>
-    
+    {% if artigo.caminho_foto %}
     <div class="col-sm-10">
-      <img class="img-rounded thumbnail" width="100%" height="100%" src="http://www.w3schools.com/w3images/nature.jpg">        
+      <img class="img-rounded thumbnail" width="100%" height="100%" src="{{ artigo.caminho_foto }}">        
     </div>
+    {% endif %}
     
     <div class="col-sm-12">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>{{ artigo.conteudo | linebreaksbr }}</p>
     </div>
     </div>
 </div>

@@ -33,7 +33,7 @@
   <div id="artigos" class="tab-pane fade">
     <h3>Artigos</h3>
     {% for artigo in valores.artigos %}
-        <h6><a href="{% url 'artigo' id=artigo.pk %}"> artigo.titulo </a></h6>
+        <h4><a href="{% url 'artigo' id=artigo.pk %}"> {{ artigo.titulo }}</a></h4>
     {% endfor %}
   </div>
 </div>    

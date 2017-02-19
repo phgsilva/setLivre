@@ -14,7 +14,7 @@ class Integrante(models.Model):
         self.save()
 
     def __unicode__(self):
-        return 'Integrante' 
+        return self.nome 
 
 class Projeto(models.Model):
     nome = models.CharField(max_length=100, blank=False)
@@ -24,7 +24,7 @@ class Projeto(models.Model):
         self.save() 
 
     def __unicode__(self):
-        return 'Projeto' 
+        return self.nome
 
 class Artigo(models.Model):
     titulo = models.CharField(max_length=150, blank=False, null=False)
@@ -39,4 +39,4 @@ class Artigo(models.Model):
         self.save()
 
     def __unicode__(self):
-        return 'Artigo' 
+        return self.titulo 
