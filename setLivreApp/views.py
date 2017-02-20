@@ -1,4 +1,5 @@
 import datetime
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 from .models import Projeto, Artigo, Integrante
 
@@ -18,9 +19,18 @@ def projeto(request, id):
     projeto = get_object_or_404(Projeto, pk=id)
     artigos = Artigo.objects.filter(projeto=projeto, 
                                     data_publicacao__year=datetime.date.today().year).order_by('data_publicacao')
+    paginador = Paginator(artigos, 10)
+    pagina = request.GET.get('pagina')
+
+    try:
+        pagina_artigos = paginador.page(pagina)
+    except PageNotAnInteger:
+        pagina_artigos = paginador.page(1)
+    except EmptyPage:
+        pagina_artigos = paginador.page(1)
 
     retorno = {'projeto': projeto,
-                'artigos': artigos}
+                'artigos': pagina_artigos}
 
     return render(request, 'setLivreApp/projeto.html', {'valores': retorno})
 

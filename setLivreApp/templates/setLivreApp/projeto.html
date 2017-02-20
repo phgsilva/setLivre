@@ -30,11 +30,23 @@
     <p>Lista de videos da playlist do canal</p>
     <p>Lista de videos da playlist do canal</p>
   </div>
+
   <div id="artigos" class="tab-pane fade">
     <h3>Artigos</h3>
     {% for artigo in valores.artigos %}
         <h4><a href="{% url 'artigo' id=artigo.pk %}"> {{ artigo.titulo }}</a></h4>
     {% endfor %}
+
+    <ul class="pagination">
+      {% if valores.artigos.has_previous %}
+        <li><a href="?pagina={{ valores.artigos.previous_page_number }}">Anterior</a></li>
+      {% endif %}
+
+      {% if valores.artigos.has_next %}
+        <li><a href="?pagina={{ valores.artigos.next_page_number }}">Proxima</a></li>
+      {% endif %}
+    </ul>
+
   </div>
 </div>    
 </div><br><br>
